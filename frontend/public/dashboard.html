@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View and update your Profile Manager details.">
+    <title>My Profile - Profile Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="dashboard.js" defer></script>
+</head>
+<body class="dashboard-page">
+    <header class="topbar">
+        <a class="brand" href="dashboard.html">Profile Manager</a>
+        <button type="button" class="button button-outline button-small" id="logoutButton">Log out</button>
+    </header>
+
+    <main class="dashboard-container">
+        <section class="profile-card">
+            <div class="profile-heading">
+                <div>
+                    <p class="eyebrow">ACCOUNT OVERVIEW</p>
+                    <h1>My Profile</h1>
+                    <p class="intro">View and update your personal information.</p>
+                </div>
+                <div class="avatar" aria-hidden="true">👤</div>
+            </div>
+
+            <form id="profileForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username"
+                               minlength="3" maxlength="30" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" id="dob" name="dob" required>
+                    </div>
+                </div>
+
+                <p id="profileMessage" class="message" role="status" hidden></p>
+                <div class="form-actions">
+                    <button type="submit" id="saveButton">Save Changes</button>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

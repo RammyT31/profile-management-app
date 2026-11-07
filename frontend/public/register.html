@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create a Profile Manager account.">
+    <title>Register - Profile Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="register.js" defer></script>
+</head>
+<body class="auth-page">
+    <main class="auth-card">
+        <h1>Create Account</h1>
+        <p class="intro">Register to start managing your profile.</p>
+
+        <form id="registerForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username"
+                       minlength="3" maxlength="30" autocomplete="username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" autocomplete="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password"
+                       minlength="8" autocomplete="new-password" required>
+                <small>Use at least 8 characters.</small>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone"
+                       placeholder="+27123456789" autocomplete="tel" required>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" autocomplete="bday" required>
+            </div>
+
+            <p id="registerMessage" class="message" role="alert" hidden></p>
+            <button type="submit" id="registerButton">Create Account</button>
+        </form>
+
+        <p class="auth-switch">Already have an account?
+            <a href="index.html">Log in here</a>
+        </p>
+    </main>
+</body>
+</html>
