@@ -24,11 +24,14 @@ registerForm.addEventListener("submit", async (event) => {
     registerButton.textContent = "Creating account...";
 
     try {
-        const response = await fetch("https://profile-management-app-vp0s.onrender.com/api/auth/login", {
+        const response = await fetch("/api/auth/register", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: {
+                "Content-Type": "application/json"
+            },
             body: JSON.stringify(formData)
         });
+
         const data = await response.json();
 
         if (!response.ok) {
@@ -36,12 +39,24 @@ registerForm.addEventListener("submit", async (event) => {
             return;
         }
 
-        showRegisterMessage(data.message + " Redirecting to login...", "success");
+        showRegisterMessage(
+            data.message + " Redirecting to login...",
+            "success"
+        );
+
         registerForm.reset();
-        setTimeout(() => window.location.href = "index.html", 1400);
+
+        setTimeout(() => {
+            window.location.href = "index.html";
+        }, 1400);
+
     } catch (error) {
         console.error("Registration request failed:", error);
-        showRegisterMessage("Could not contact the server. Check that the backend is running.");
+
+        showRegisterMessage(
+            "Could not contact the server. Please try again."
+        );
+
     } finally {
         registerButton.disabled = false;
         registerButton.textContent = "Create Account";
