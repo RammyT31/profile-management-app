@@ -57,8 +57,8 @@ profileForm.addEventListener("submit", async (event) => {
     saveButton.textContent = "Saving...";
 
     try {
-        const response = await fetch("http://localhost:3000/api/profile", {
-            method: "PUT",
+        const response = await fetch("https://profile-management-app-vp0s.onrender.com/api/auth/login", {
+            method: "GET",
             headers: {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${token}`

@@ -24,7 +24,7 @@ registerForm.addEventListener("submit", async (event) => {
     registerButton.textContent = "Creating account...";
 
     try {
-        const response = await fetch("http://localhost:3000/api/auth/register", {
+        const response = await fetch("https://profile-management-app-vp0s.onrender.com/api/auth/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(formData)

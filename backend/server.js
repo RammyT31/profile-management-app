@@ -9,7 +9,11 @@ const profileRoutes = require("./routes/profile");
 
 const app = express();
 app.use(cors({
-    origin: "http://127.0.0.1:5501"
+    origin: [
+        "http://127.0.0.1:5501",
+        "http://localhost:5501",
+        process.env.FRONTEND_URL
+    ]
 }));
 const PORT = process.env.PORT || 3000;
 
@@ -41,8 +45,8 @@ async function startServer() {
         await mongoose.connect(process.env.MONGODB_URI);
         console.log("Connected to MongoDB successfully.");
 
-        app.listen(PORT, () => {
-            console.log(`Server running at http://localhost:${PORT}`);
+        app.listen(PORT, "0.0.0.0", () => {
+            console.log(`Server running on port ${PORT}`);
         });
     } catch (error) {
         console.error("MongoDB connection failed:", error.message);
